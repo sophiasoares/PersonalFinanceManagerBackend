@@ -24,11 +24,11 @@ public class BudgetService {
         return budgetRepository.save(budget);
     }
 
-    public List<Budget> findAllBudgets() {
+    public List<Budget> getAllBudgets() {
         return budgetRepository.findAll();
     }
 
-    public Budget findBudgetById(Integer id) {
+    public Budget getBudgetById(Integer id) {
         return budgetRepository.findBudgetById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Budget by id " + id + " was not found"));
     }

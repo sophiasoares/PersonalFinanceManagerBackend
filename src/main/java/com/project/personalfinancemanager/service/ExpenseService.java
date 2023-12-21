@@ -24,11 +24,11 @@ public class ExpenseService {
         return expenseRepository.save(expense);
     }
 
-    public List<Expense> findAllExpenses() {
+    public List<Expense> getAllExpenses() {
         return expenseRepository.findAll();
     }
 
-    public Expense findExpenseById(Integer id) {
+    public Expense getExpenseById(Integer id) {
         return expenseRepository.findExpenseById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Expense by id " + id + " was not found"));
     }

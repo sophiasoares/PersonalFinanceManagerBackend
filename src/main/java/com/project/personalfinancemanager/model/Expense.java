@@ -1,40 +1,48 @@
 package com.project.personalfinancemanager.model;
 
+import jakarta.persistence.*;
+
 import java.util.Date;
 
+@Entity
+@Table(name = "expense")
 public class Expense {
-    private int expenseId;
-    private int userId;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, updatable = false)
+    private int id;
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+    @Column(nullable = false)
     private double amount;
+    @Enumerated(EnumType.STRING)
     private Category category;
+    @Column(nullable = false)
     private String description;
+    @Temporal(TemporalType.DATE)
     private Date date;
 
     public Expense() {}
 
-    public Expense(int userId, double amount, Category category, String description, Date date) {
-        this.userId = userId;
+    public Expense(User user, double amount, Category category, String description, Date date) {
+        this.user = user;
         this.amount = amount;
         this.category = category;
         this.description = description;
         this.date = date;
     }
 
-    public int getExpenseId() {
-        return expenseId;
+    public int getId() { return id; }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setExpenseId(int expenseId) {
-        this.expenseId = expenseId;
-    }
+    public User getUser() { return user; }
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
+    public void setUser(User user) { this.user = user; }
 
     public double getAmount() {
         return amount;

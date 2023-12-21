@@ -24,7 +24,7 @@ public class IncomeService {
         return incomeRepository.save(income);
     }
 
-    public List<Income> findAllIncomes() {
+    public List<Income> getAllIncomes() {
         return incomeRepository.findAll();
     }
 
@@ -32,7 +32,7 @@ public class IncomeService {
         return incomeRepository.save(income);
     }
 
-    public Income findIncomeById(Integer id) {
+    public Income getIncomeById(Integer id) {
         return incomeRepository.findIncomeById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Income by id " + id + " was not found"));
     }

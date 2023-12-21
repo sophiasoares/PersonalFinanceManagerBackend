@@ -23,11 +23,11 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public List<User> findAllUsers() {
+    public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
-    public User findUserById(Integer id) {
+    public User getUserById(Integer id) {
         return userRepository.findUserById(id)
                 .orElseThrow(() -> new RuntimeException("User by id " + id + " was not found"));
     }

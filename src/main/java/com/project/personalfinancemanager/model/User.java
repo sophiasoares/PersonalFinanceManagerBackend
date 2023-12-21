@@ -1,9 +1,20 @@
 package com.project.personalfinancemanager.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "app_user")
 public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, updatable = false)
     private int id;
+    @Column(nullable = false, unique = true, length = 45)
     private String username;
+    @Column(nullable = false, length = 64)
     private String password;
+    @Column(nullable = false, unique = true, length = 45)
     private String email;
 
     public User() {}
