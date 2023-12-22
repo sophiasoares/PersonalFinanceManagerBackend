@@ -12,5 +12,7 @@ public enum Category {
     EDUCATION,
     INVESTMENTS,
     GIFTS,
+    SAVINGS,
+    TRAVEL,
     OTHER
 }

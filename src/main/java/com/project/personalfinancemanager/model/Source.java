@@ -1,7 +1,7 @@
 package com.project.personalfinancemanager.model;
 
 public enum Source {
-    SALARY,
+    PAYCHECK,
     FREELANCE,
     INVESTMENTS,
     GIFT,
