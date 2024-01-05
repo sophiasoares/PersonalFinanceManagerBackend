@@ -35,7 +35,6 @@ public class ExpenseController {
 
     @PostMapping("/add")
     public ResponseEntity<Expense> addExpense(@RequestBody Expense expense) {
-        System.out.println("Hello World");
         logger.debug("Received a POST request to add an expense: {}", expense);
 
         try {
