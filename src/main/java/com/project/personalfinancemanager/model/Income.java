@@ -20,14 +20,17 @@ public class Income {
     private String description;
     @Temporal(TemporalType.DATE)
     private Date date;
+    @Column(nullable = false)
+    private String type;
 
     public Income() {}
 
-    public Income(String source, double amount, String description, Date date) {
+    public Income(String source, double amount, String description, Date date, String type) {
         this.source = source;
         this.amount = amount;
         this.description = description;
         this.date = date;
+        this.type = type;
     }
 
     public int getId() {
@@ -69,4 +72,8 @@ public class Income {
     public void setDate(Date date) {
         this.date = date;
     }
+
+    public String getType() { return type; }
+
+    public void setType(String type) { this.type = type; }
 }

@@ -16,18 +16,23 @@ public class Budget {
     private double amount;
     @Column(nullable = false)
     private String category;
+    @Column(nullable = false)
+    private String description;
     @Temporal(TemporalType.DATE)
     private Date startDate;
     @Temporal(TemporalType.DATE)
     private Date endDate;
+    @Column(nullable = false)
+    private String type;
 
     public Budget() {}
 
-    public Budget(double amount, String category, Date startDate, Date endDate) {
+    public Budget(double amount, String category, Date startDate, Date endDate, String type) {
         this.amount = amount;
         this.category = category;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.type = type;
     }
 
     public int getId() {
@@ -50,9 +55,11 @@ public class Budget {
         return category;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
+    public void setCategory(String category) { this.category = category; }
+
+    public String getDescription() { return description; }
+
+    public void setDescription(String description) { this.description = description; }
 
     public Date getStartDate() {
         return startDate;
@@ -69,4 +76,8 @@ public class Budget {
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
+
+    public String getType() { return type; }
+
+    public void setType(String type) { this.type = type; }
 }
