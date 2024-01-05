@@ -12,13 +12,10 @@ public class Expense {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, updatable = false)
     private int id;
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
     @Column(nullable = false)
     private double amount;
-    @Enumerated(EnumType.STRING)
-    private Category category;
+    @Column(nullable = false)
+    private String category;
     @Column(nullable = false)
     private String description;
     @Temporal(TemporalType.DATE)
@@ -26,8 +23,7 @@ public class Expense {
 
     public Expense() {}
 
-    public Expense(User user, double amount, Category category, String description, Date date) {
-        this.user = user;
+    public Expense(double amount, String category, String description, Date date) {
         this.amount = amount;
         this.category = category;
         this.description = description;
@@ -40,10 +36,6 @@ public class Expense {
         this.id = id;
     }
 
-    public User getUser() { return user; }
-
-    public void setUser(User user) { this.user = user; }
-
     public double getAmount() {
         return amount;
     }
@@ -52,11 +44,9 @@ public class Expense {
         this.amount = amount;
     }
 
-    public Category getCategory() {
-        return category;
-    }
+    public String getCategory() { return category; }
 
-    public void setCategory(Category category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 

@@ -12,11 +12,8 @@ public class Income {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, updatable = false)
     private int id;
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
-    @Enumerated(EnumType.STRING)
-    private Source source;
+    @Column(nullable = false)
+    private String source;
     @Column(nullable = false)
     private double amount;
     @Column(nullable = false)
@@ -26,8 +23,7 @@ public class Income {
 
     public Income() {}
 
-    public Income(User user, Source source, double amount, String description, Date date) {
-        this.user = user;
+    public Income(String source, double amount, String description, Date date) {
         this.source = source;
         this.amount = amount;
         this.description = description;
@@ -42,19 +38,11 @@ public class Income {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Source getSource() {
+    public String getSource() {
         return source;
     }
 
-    public void setSource(Source source) {
+    public void setSource(String source) {
         this.source = source;
     }
 
